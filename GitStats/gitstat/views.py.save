@@ -7,6 +7,9 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext
 
+# Plotly
+import plotly.plotly as py
+from plotly.graph_objs import *
 
 def homepage():
   pass
@@ -20,11 +23,28 @@ def users_region_language_plot(request):
    plotted for the same, plotted using plotly. 
    It is a vertical bar graph.
    """
+   languages = ['python','dotnet','javascript','scala','java']
+
    if request.method == "POST":
-   # Get request params, two cities
-   # Get data using gthb
-   # Plot data, create iframe and return iframe as HttpResponse.
-       iframe = '<iframe></iframe>'
+       gt = gthb.Github()       
+       city1 = request.POST["city1"]
+       city2 = request.POST["city1"]
+       counts1 = []
+       counts2 = []
+       for lang in languages:
+           counts1.append( _number_of_users(gt, location=city1,language=lang))
+           counts2.append(_number_of_users(gt, location=city2,language=lang))
+       
+       trace1 = Bar(x=languages, y = counts1, name=city1)
+       trace2 = Bar(x=languages, y = counts2, name=city2)
+       data = Data([trace1, trace2])       
+       layout = Layout(barmode='group')
+       fig = Figure(data=data, layout=layout)
+
+       plot_url = py.plot(fig, file_name='barchart')
+       embed_url = plot_url + ".embed?height=600&width=600"
+
+       iframe = '<iframe src=\"{embed_url}\" ></iframe>'.format(embed_url=embed_url)
        return HttpResponse(iframe)
 
 # Plot 2 url: /piechart/
@@ -35,6 +55,7 @@ def region_language_plot(request):
    plotted for the same, plotted using plotly.
    """
    if request.method == "POST":
+       
        iframe = '<iframe></iframe>'
        return HttpResponse(iframe)
 
@@ -49,7 +70,7 @@ def _number_of_users(gthb_object, location="Gurgaon", language="Python"):
    """
    query="location: {_location} language:{_language}".format(_location=location, _language=language)
    result = gthb_object.users_search(query)
-   return result.count
+   return result.totalCount
 
 
 

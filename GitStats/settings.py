@@ -13,8 +13,20 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+from django.conf.global_settings import TEMPLATE_DIRS
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+print os.path.dirname(__file__)
+# Static Files
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "GitStats", "static"),
+)
+
+print TEMPLATE_DIRS
+print STATICFILES_DIRS
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -37,7 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GitStats.GitStat',
+    'GitStats.gitstat',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +68,7 @@ ROOT_URLCONF = 'GitStats.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "GitStats", "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
