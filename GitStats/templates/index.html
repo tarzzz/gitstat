@@ -47,6 +47,9 @@
                             <a href="#" id="dashboard_side"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+                            <a href="#" id="about"><i class="fa fa-info fa-fw"></i> About</a>
+                        </li>
+                        <li>
                             <a href="#" id="charts_toggle">
                               <i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span>
                               </a>
@@ -61,7 +64,10 @@
                                     <a href="#" id="graph3_init_side">Graph 3</a>
                                 </li>
                                 
-                            </ul></div></div>
+                            </ul>
+                            </li>
+                            </ul>
+                            </div></div>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -130,6 +136,13 @@
         <br /><br /><br />
         <div id="desc">
             <!-- Graph Descriptions -->
+            <div class="panel panel-default" id="about_desc" style="display:None; max-width:60%; min-height:60%">
+		                        <div class="panel-heading">
+		                        GitStat: A Github data mining app
+		                        </div>
+		                        This web app mines data from the github for certain conditions.
+		    </div>
+
 		    <div class="panel panel-default" id="graph1_desc" style="display:None; max-width:60%; min-height:60%">
 		                        <div class="panel-heading">
 		                        Bar Graph: Popularity of Language in multiple cities.
@@ -166,8 +179,26 @@
                 <div class="panel-heading">
                     <h3>Bar Graph: Popularity of Language in multiple cities.</h3>
                   </div>
-                  <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/40.embed?height=400&width=600"></iframe>
-                <div class="pull-right" id="filters">
+                  <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/40.embed?height=400&width=550"></iframe>
+                <div class="pull-right" id="filters" style="margin-right:20%;margin-top:5%">
+                <div class="form-group">
+                  <label for="sel1">Select City 1:</label>
+                   <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                     <br />
+                    <label for="sel1">Select City 2:</label>
+                   <select class="form-control" id="sel1">
+                   {% for city in city_list%}
+                    <option>{{ city }}</option>
+                    {% endfor %}
+                  </select>
+                  <hr />
+                  <a href="#" class="btn btn-primary btn-large"><i class="icon-white icon-th-large"></i> Plot Data</a>
+                </div>
                 
                 </div>  
         </div>
