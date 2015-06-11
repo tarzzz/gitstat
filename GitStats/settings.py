@@ -25,8 +25,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "GitStats", "static"),
 )
 
-print TEMPLATE_DIRS
-print STATICFILES_DIRS
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/

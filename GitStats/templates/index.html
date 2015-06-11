@@ -145,10 +145,10 @@
 
 		    <div class="panel panel-default" id="graph1_desc" style="display:None; max-width:60%; min-height:60%">
 		                        <div class="panel-heading">
-		                        Bar Graph: Popularity of Language in multiple cities.
+		                        Plot: Popularity of Language in different cities.
 		                        </div>
 		                        This graph shows the popularity of the five languages, i.e. Python,
-		                        Scala, DotNet, Javascript and Java in two cities. 
+		                        Scala, DotNet, Javascript and Java in different cities. 
 		                        <br />
 		                        <b> Note: </b> To view the graph, click on the icon!
 		    </div>
@@ -175,29 +175,37 @@
         	
         </div>
 
-        <div class="panel panel-default" id="graph1_wrapper" style="display:None">
+        <div class="panel panel-default" id="graph1_wrapper" style="display:None;min-height:35em;">
                 <div class="panel-heading">
-                    <h3>Bar Graph: Popularity of Language in multiple cities.</h3>
+                    <h3>Plot: Popularity of Language in different cities.</h3>
                   </div>
-                  <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/40.embed?height=400&width=550"></iframe>
+                    <div id="loader" class="pull-left" style="display:None;">
+                    <img src="/static/img/loader.gif" ></img>
+                    <a><h3>Fetching the latest data... </h3></a>
+                    </div>
+
+                    <iframe id="graph1_canvas" height="400px" width="600px" align="center" 
+                        src="https://plot.ly/~PlotBot/40.embed?height=400&width=550">
+                    </iframe>
+
+
                 <div class="pull-right" id="filters" style="margin-right:20%;margin-top:5%">
                 <div class="form-group">
                   <label for="sel1">Select City 1:</label>
-                   <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                   <select class="form-control" id="city_sel1">
+                   {% for city in city_list%}
+                    <option>{{ city }}</option>
+                    {% endfor %}
                   </select>
                      <br />
                     <label for="sel1">Select City 2:</label>
-                   <select class="form-control" id="sel1">
+                   <select class="form-control" id="city_sel2">
                    {% for city in city_list%}
                     <option>{{ city }}</option>
                     {% endfor %}
                   </select>
                   <hr />
-                  <a href="#" class="btn btn-primary btn-large"><i class="icon-white icon-th-large"></i> Plot Data</a>
+                  <a href="#" class="btn btn-primary btn-large" id="graph1_plot"><i class="icon-white icon-th-large"></i> Plot Data</a>
                 </div>
                 
                 </div>  

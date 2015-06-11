@@ -114,3 +114,21 @@ $("#about").click(function(){
 
 });
 
+$("#graph1_plot").click(function(){
+    $("#graph1_canvas").hide();
+    $("#loader").show();
+    $.post( "/bargraph/", { city1: $("#city_sel1").val(), city2: $("#city_sel2").val() })
+      .done(function( data ) {
+          $("#loader").hide();
+          $("#graph1_canvas").show();
+          $("#graph1_canvas").attr("src",data);
+
+
+      }).fail(function(data){
+        alert("An Error Occured!");
+        $("#loader").hide();
+        alert(data);
+
+
+      });
+});

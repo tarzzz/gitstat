@@ -21,7 +21,7 @@ from gitstat.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', homepage),
-    url(r'^bargraph$',users_region_language_plot),
-    url(r'^piechart$',region_language_plot),
+    url(r'^bargraph/$',bargraph),
+    url(r'^scatter$',scatter),
 
 ]
