@@ -179,9 +179,13 @@
                 <div class="panel-heading">
                     <h3>Plot: Popularity of Language in different cities.</h3>
                   </div>
-                    <div id="loader" class="pull-left" style="display:None;">
+                    <div id="loader1" class="pull-left" style="display:None;">
+                    <h4>Fetching the latest data. <br />
+                        Please wait for a moment..
+                    </h4>
                     <img src="/static/img/loader.gif" ></img>
-                    <a><h3>Fetching the latest data... </h3></a>
+                    
+                    
                     </div>
 
                     <iframe id="graph1_canvas" height="400px" width="600px" align="center" 
@@ -212,12 +216,35 @@
         </div>
         <div class="panel panel-default" id="graph2_wrapper" style="display:None;">
                 <div class="panel-heading">
-                    <h3>Bar Graph 2: Popularity of Language in multiple cities.</h3>
+                    <h3>Line Chart: Users creation timeline on Github</h3>
                   </div>
-              <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/40.embed?height=400&width=600"></iframe>    
-              <div class="pull-right" id="filters">
-                	Some graph specific filters here...
-              </div>  
+              <div id="loader2" class="pull-left" style="display:None;">
+                    <img src="/static/img/loader.gif" ></img>
+                    <a><h3>Fetching the latest data... </h3></a>
+                    </div>
+              <iframe id="graph2_canvas" height="400px" width="600px" align="center" 
+                        src="https://plot.ly/~PlotBot/40.embed?height=400&width=550">
+                    </iframe>
+              <div class="pull-right" id="filters" style="margin-right:20%;margin-top:5%">
+                <div class="form-group">
+                  <label for="sel1">Select Start Year:</label>
+                   <select class="form-control" id="year">
+                   {% for year in years %}
+                    <option>{{ year }}</option>
+                    {% endfor %}
+                  </select>
+                     <br />
+                    <label for="sel1">Select City:</label>
+                   <select class="form-control" id="city">
+                   {% for city in city_list%}
+                    <option>{{ city }}</option>
+                    {% endfor %}
+                  </select>
+                  <hr />
+                  <a href="#" class="btn btn-primary btn-large" id="graph2_plot"><i class="icon-white icon-th-large"></i> Plot Data</a>
+                </div>
+                
+                </div>  
         </div>    
         <div class="panel panel-default" id="graph3_wrapper" style="display:None;">
                 <div class="panel-heading">

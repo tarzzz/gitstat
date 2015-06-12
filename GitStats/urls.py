@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', homepage),
     url(r'^bargraph/$',bargraph),
-    url(r'^scatter$',scatter),
+    url(r'^line/$',line),
 
 ]

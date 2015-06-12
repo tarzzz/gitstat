@@ -116,12 +116,31 @@ $("#about").click(function(){
 
 $("#graph1_plot").click(function(){
     $("#graph1_canvas").hide();
-    $("#loader").show();
+    $("#loader1").show();
     $.post( "/bargraph/", { city1: $("#city_sel1").val(), city2: $("#city_sel2").val() })
       .done(function( data ) {
           $("#loader").hide();
           $("#graph1_canvas").show();
           $("#graph1_canvas").attr("src",data);
+
+
+      }).fail(function(data){
+        alert("An Error Occured!");
+        $("#loader").hide();
+        alert(data);
+
+
+      });
+});
+
+$("#graph2_plot").click(function(){
+    $("#graph2_canvas").hide();
+    $("#loader2").show();
+    $.post( "/line/", { year: $("#year").val(), city: $("#city").val() })
+      .done(function( data ) {
+          $("#loader").hide();
+          $("#graph2_canvas").show();
+          $("#graph2_canvas").attr("src",data);
 
 
       }).fail(function(data){
