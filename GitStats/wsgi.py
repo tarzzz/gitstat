@@ -19,4 +19,4 @@ application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 
 #if local
-import wsgi_local
+# import wsgi_local

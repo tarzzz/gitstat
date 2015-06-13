@@ -85,7 +85,7 @@ def line(request):
                       "September","October","November", "December"]
         
         y = []
-        for j in range(1,5):
+        for j in range(1,13):
             _init_created = str(start_year) + str("-0"+str(j) if j<10 else "-"+ str(j)) + "-01"
             _created = _init_created + ".." + _init_created[:-2] + "28"
             print "created"
