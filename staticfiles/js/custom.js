@@ -119,14 +119,14 @@ $("#graph1_plot").click(function(){
     $("#loader1").show();
     $.post( "/bargraph/", { city1: $("#city_sel1").val(), city2: $("#city_sel2").val() })
       .done(function( data ) {
-          $("#loader").hide();
+          $("#loader1").hide();
           $("#graph1_canvas").show();
           $("#graph1_canvas").attr("src",data);
 
 
       }).fail(function(data){
         alert("An Error Occured!");
-        $("#loader").hide();
+        $("#loader1").hide();
         alert(data);
 
 
@@ -136,16 +136,16 @@ $("#graph1_plot").click(function(){
 $("#graph2_plot").click(function(){
     $("#graph2_canvas").hide();
     $("#loader2").show();
-    $.post( "/line/", { year: $("#year").val(), city: $("#city").val() })
+    $.post( "/line/", { year: $("#year").val(), city: $("#city").val(), object: $("#object").val() })
       .done(function( data ) {
-          $("#loader").hide();
+          $("#loader2").hide();
           $("#graph2_canvas").show();
           $("#graph2_canvas").attr("src",data);
 
 
       }).fail(function(data){
         alert("An Error Occured!");
-        $("#loader").hide();
+        $("#loader2").hide();
         alert(data);
 
 
