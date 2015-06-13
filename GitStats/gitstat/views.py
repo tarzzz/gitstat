@@ -93,8 +93,11 @@ def line(request):
             try:
             	if obj=="Users":
             	    y.append(_number_of_users_joined(gt, location=city, created=_created))
-                else:
+                elif obj=="Repositories":
                     y.append(_number_of_repo_added(gt, location=city, created=_created))
+                else:
+                    y.append(_number_of_issues_added(gt, location=city, created=_created))
+
             except:
                 break    
         l = len(y)
@@ -135,6 +138,7 @@ def _number_of_users(gthb_object, location="Gurgaon", language="Python"):
      """
      query="location:{_location} language:{_language}".format(_location=location, _language=language)
      result = gthb_object.search_users(query)
+     print result.totalCount
      return result.totalCount
 
 def _number_of_users_joined(gthb_object, location="Gurgaon", created="2012-01-01"):
@@ -144,6 +148,7 @@ def _number_of_users_joined(gthb_object, location="Gurgaon", created="2012-01-01
      """
      query="location:{_location} created:{_created}".format(_location=location, _created=created)
      result = gthb_object.search_users(query)
+     print result.totalCount
      return result.totalCount
 
 def _number_of_repo_added(gthb_object, location="Gurgaon", created="2012-01-01"):
@@ -155,6 +160,7 @@ def _number_of_repo_added(gthb_object, location="Gurgaon", created="2012-01-01")
      print "query"
      print query
      result = gthb_object.search_repositories(query)
+     print result.totalCount
      return result.totalCount
 
 def _number_of_issues_added(gthb_object, location="Gurgaon", created="2012-01-01"):
@@ -164,6 +170,7 @@ def _number_of_issues_added(gthb_object, location="Gurgaon", created="2012-01-01
      """
      query="location:{_location} created:{_created}".format(_location=location, _created=created)
      result = gthb_object.search_issues(query)
+     print result.totalCount
      return result.totalCount
 
 
