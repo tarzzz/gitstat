@@ -127,38 +127,38 @@ def line(request):
         return HttpResponse(embed_url)
 
 def _number_of_users(gthb_object, location="Gurgaon", language="Python"):
-     """
-     Search for users for a particular language in a particular region.
-     Returns count for the same
-     """
-     query="location:{_location} language:{_language}".format(_location=location, _language=language)
-     result = gthb_object.search_users(query)
-     print result.totalCount
-     return result.totalCount
+    """
+    Search for users for a particular language in a particular region.
+    Returns count for the same
+    """
+    query="location:{_location} language:{_language}".format(_location=location, _language=language)
+    result = gthb_object.search_users(query)
+    print result.totalCount
+    return result.totalCount
 
 def _number_of_users_joined(gthb_object, location="Gurgaon", created="2012-01-01"):
-     """
-     Search for users for a particular language in a particular region.
-     Returns count for the same
-     """
-     query="location:{_location} created:{_created}".format(_location=location, _created=created)
-     result = gthb_object.search_users(query)
-     count = result.totalCount
-     print count
-     return count
+    """
+    Search for users for a particular language in a particular region.
+    Returns count for the same
+    """
+    query="location:{_location} created:{_created}".format(_location=location, _created=created)
+    result = gthb_object.search_users(query)
+    count = result.totalCount
+    print count
+    return count
 
 def _number_of_repo_added(gthb_object, location="Gurgaon", created="2012-01-01"):
-     """
-     Search for users for a particular language in a particular region.
-     Returns count for the same
-     """
-     query="location:{_location} created:{_created}".format(_location=location, _created=created)
-     print "query"
-     print query
-     result = gthb_object.search_repositories(query)
-     count = result.totalCount
-     print count
-     return count
+    """
+    Search for users for a particular language in a particular region.
+    Returns count for the same
+    """
+    query="location:{_location} created:{_created}".format(_location=location, _created=created)
+    print "query"
+    print query
+    result = gthb_object.search_repositories(query)
+    count = result.totalCount
+    print count
+    return count
 
 def _number_of_issues_added(gthb_object, location="Gurgaon", created="2012-01-01"):
      """
