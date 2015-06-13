@@ -1,6 +1,6 @@
 django==1.8.1
 pandas==0.16
-plotly==1.6
+plotly==1.6.16
 PyGithub==1.25
 gunicorn
 whitenoise

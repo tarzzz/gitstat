@@ -229,7 +229,7 @@
                     </iframe>
               <div class="pull-right" id="filters" style="margin-right:20%;margin-top:5%">
                 <div class="form-group">
-                  <label for="sel1">Select Start Year:</label>
+                  <label for="sel1">Select Year:</label>
                    <select class="form-control" id="year">
                    {% for year in years %}
                     <option>{{ year }}</option>
@@ -241,6 +241,12 @@
                    {% for city in city_list%}
                     <option>{{ city }}</option>
                     {% endfor %}
+                  </select>
+                  <label for="sel1">Select Object:</label>
+                   <select class="form-control" id="object">
+                   <option>Users</option>
+                   <option>Repositories</option>
+                   <option>Issues</option>
                   </select>
                   <hr />
                   <a href="#" class="btn btn-primary btn-large" id="graph2_plot"><i class="icon-white icon-th-large"></i> Plot Data</a>

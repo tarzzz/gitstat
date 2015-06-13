@@ -18,3 +18,5 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "GitStats.settings")
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 
+#if local
+import wsgi_local

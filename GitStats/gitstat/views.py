@@ -77,37 +77,43 @@ def line(request):
     	print "1"
         start_year = int(request.POST["year"])
         city = request.POST["city"]
+        obj = request.POST["object"]
         counts1 = []
         counts2 = []
         print "2"
         date_list = ["January","February","March","April","May","June","July","August",
                       "September","October","November", "December"]
-        users_joined = []
         
-        for j in range(1,13):
+        y = []
+        for j in range(1,5):
             _init_created = str(start_year) + str("-0"+str(j) if j<10 else "-"+ str(j)) + "-01"
             _created = _init_created + ".." + _init_created[:-2] + "28"
             print "created"
             print _created
             try:
-                users_joined.append(_number_of_users_joined(gt, location=city, created=_created))
+            	if obj=="Users":
+            	    y.append(_number_of_users_joined(gt, location=city, created=_created))
+                else:
+                    y.append(_number_of_repo_added(gt, location=city, created=_created))
             except:
                 break    
-        l = len(users_joined)    
+        l = len(y)
         print "3"
-        trace = Scatter(
+        trace1 = Scatter(
         	      x=date_list[:l],
-                  y=users_joined,
-                  mode='lines'
+                  y=y,
+                  mode='lines',
+                  name=obj
                 )
-        data = Data([trace])       
+        
+        data = Data([trace1])       
         layout = Layout(
-                        title='Number of Users by create month',
+                        title='New ' + obj + ' Addition on Github',
                         xaxis=XAxis(
                            title='Month'
                         ),
                         yaxis=YAxis(
-                        title='Number of users'
+                        title='Number of ' + obj
                         )
                     )
 
@@ -138,6 +144,26 @@ def _number_of_users_joined(gthb_object, location="Gurgaon", created="2012-01-01
      """
      query="location:{_location} created:{_created}".format(_location=location, _created=created)
      result = gthb_object.search_users(query)
+     return result.totalCount
+
+def _number_of_repo_added(gthb_object, location="Gurgaon", created="2012-01-01"):
+     """
+     Search for users for a particular language in a particular region.
+     Returns count for the same
+     """
+     query="location:{_location} created:{_created}".format(_location=location, _created=created)
+     print "query"
+     print query
+     result = gthb_object.search_repositories(query)
+     return result.totalCount
+
+def _number_of_issues_added(gthb_object, location="Gurgaon", created="2012-01-01"):
+     """
+     Search for users for a particular language in a particular region.
+     Returns count for the same
+     """
+     query="location:{_location} created:{_created}".format(_location=location, _created=created)
+     result = gthb_object.search_issues(query)
      return result.totalCount
 
 
