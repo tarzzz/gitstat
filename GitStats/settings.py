@@ -115,8 +115,8 @@ STATIC_URL = '/static/'
 
 # login to plotly
 # print "Logging in to plotly.."
-#import plotly; 
-#plotly.tools.set_credentials_file(username='tarzzz', api_key='j31379xjqh')
+import plotly
+plotly.tools.set_credentials_file(username='tarzzz', api_key='j31379xjqh')
 # Heroku specific settings:
 
 # Parse database configuration from $DATABASE_URL

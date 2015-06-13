@@ -62,9 +62,10 @@
                                 <li>
                                     <a href="#" id="graph2_init_side">Graph 2</a>
                                 </li>
+                                <!--
                                 <li>
                                     <a href="#" id="graph3_init_side">Graph 3</a>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                             </li>
@@ -114,7 +115,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div><!--
                 <div class="col-lg-3 col-md-6" id="graph3_init">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
@@ -133,7 +134,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div>-->
             </div>    
         <br /><br /><br />
         <div id="desc">
@@ -142,30 +143,38 @@
 		                        <div class="panel-heading">
 		                        GitStat: A Github data mining app
 		                        </div>
-		                        This web app mines data from the github for certain conditions.
+		                        This web app collects users, repositories and issues data
+                                using Github V3 API in realtime and plots the relevant information
+                                in graphs using Plot.ly.
+                                <br />
+                                <b>NOTE:</b> If some of the graphs are not showing any data, that might be
+                                because the Github API is having downtime. Please try again some time
+                                later for results.
 		    </div>
 
 		    <div class="panel panel-default" id="graph1_desc" style="display:None; max-width:60%; min-height:60%">
 		                        <div class="panel-heading">
-		                        Plot: Popularity of Language in different cities.
+		                        <b>Language popularity</b>
 		                        </div>
-		                        This graph shows the popularity of the five languages, i.e. Python,
+		                        <div class="pull-left">This graph shows the popularity of the five languages, i.e. Python,
 		                        Scala, DotNet, Javascript and Java in different cities. 
 		                        <br />
-		                        <b> Note: </b> To view the graph, click on the icon!
+		                        <b> Note: </b> To view the graph, click on the icon!</div>
+
+
 		    </div>
 
 		    <div class="panel panel-default" id="graph2_desc" style="display:None; max-width:60%; min-height:60%">
 		                        <div class="panel-heading">
-		                        Bar Graph 2: Popularity of Language in multiple cities.
+		                        <b>Github Timeline</b>
 		                        </div>
-		                        This graph shows the popularity of the five languages, i.e. Python,
-		                        Scala, DotNet, Javascript and Java in two cities. 
+                                <div class="pull-left">This plot shows the number of objects (Users, Repositories or Issues) created at the
+                                certain point of time in different cities.
 		                        <br />
-		                        <b> Note: </b> To view the graph, click on the icon!
+		                        <b> Note: </b> To view the graph, click on the icon!</div>
 		    </div>
 
-		    <div class="panel panel-default" id="graph3_desc" style="display:None; max-width:60%; min-height:60%">
+		    <!--<div class="panel panel-default" id="graph3_desc" style="display:None; max-width:60%; min-height:60%">
 		                        <div class="panel-heading">
 		                        Bar Graph 3: Popularity of Language in multiple cities.
 		                        </div>
@@ -173,25 +182,23 @@
 		                        Scala, DotNet, Javascript and Java in two cities. 
 		                        <br />
 		                        <b> Note: </b> To view the graph, click on the icon!
-		    </div>
+		    </div> -->
         	
         </div>
 
         <div class="panel panel-default" id="graph1_wrapper" style="display:None;min-height:35em;">
                 <div class="panel-heading">
-                    <h3>Plot: Popularity of Language in different cities.</h3>
+                    <h3>Plot: Language popularity</h3>
                   </div>
                     <div id="loader1" class="pull-left" style="display:None;">
-                    <h4>Fetching the latest data. <br />
-                        Please wait for a moment..
-                    </h4>
+                    <h3>Please wait while we fetch the latest data... </h3>
                     <img src="/static/img/loader.gif" ></img>
                     
                     
                     </div>
 
                     <iframe id="graph1_canvas" height="400px" width="600px" align="center" 
-                        src="https://plot.ly/~PlotBot/40.embed?height=400&width=550">
+                        src="https://plot.ly/~PlotBot/114.embed?height=400&width=550">
                     </iframe>
 
 
@@ -218,14 +225,14 @@
         </div>
         <div class="panel panel-default" id="graph2_wrapper" style="display:None;">
                 <div class="panel-heading">
-                    <h3>Line Chart: Users creation timeline on Github</h3>
+                    <h3>Plot: Github Timeline</h3>
                   </div>
               <div id="loader2" class="pull-left" style="display:None;">
+                    <h3>Please wait while we fetch the latest data... </h3>
                     <img src="/static/img/loader.gif" ></img>
-                    <a><h3>Fetching the latest data... </h3></a>
                     </div>
               <iframe id="graph2_canvas" height="400px" width="600px" align="center" 
-                        src="https://plot.ly/~PlotBot/40.embed?height=400&width=550">
+                        src="https://plot.ly/~PlotBot/114.embed?height=400&width=550">
                     </iframe>
               <div class="pull-right" id="filters" style="margin-right:20%;margin-top:5%">
                 <div class="form-group">
@@ -258,7 +265,7 @@
                 <div class="panel-heading">
                     <h3>Bar Graph 3: Popularity of Language in multiple cities.</h3>
                   </div>
-                <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/40.embed?height=400&width=600"></iframe>  
+                <iframe height="400px" width="600px" src="https://plot.ly/~PlotBot/114.embed?height=400&width=600"></iframe>  
                 <div class="pull-right" id="filters">
                 	Some graph specific filters here...
                 </div>  

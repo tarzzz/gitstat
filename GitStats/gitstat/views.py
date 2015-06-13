@@ -53,7 +53,7 @@ def bargraph(request):
         trace1 = Bar(x=languages, y = counts1, name=city1)
         trace2 = Bar(x=languages, y = counts2, name=city2)
         data = Data([trace1, trace2])       
-        layout = Layout(barmode='group')
+        layout = Layout(title="Language Popularity",barmode='group')
         print "4"
         fig = Figure(data=data, layout=layout)
         
