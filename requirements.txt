@@ -4,3 +4,4 @@ plotly==1.6.16
 PyGithub==1.25
 gunicorn
 whitenoise
+dj-database-url
