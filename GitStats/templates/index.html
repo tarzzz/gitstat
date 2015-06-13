@@ -10,8 +10,10 @@
     <meta name="author" content="">
 
     <title>GitStat: A Github data mining app</title>
+    {% load static from staticfiles %}
+    "{% static "images/hi.jpg" %}"
     <!-- Bootstrap Core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
     <link href="/static/css/metisMenu.css" rel="stylesheet">

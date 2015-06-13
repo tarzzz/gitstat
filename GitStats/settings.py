@@ -19,14 +19,13 @@ from django.conf.global_settings import TEMPLATE_DIRS
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-print os.path.dirname(__file__)
 # Static Files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "GitStats", "static"),
 )
 
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -113,3 +112,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# login to plotly
+# print "Logging in to plotly.."
+#import plotly; 
+#plotly.tools.set_credentials_file(username='tarzzz', api_key='j31379xjqh')
+# Heroku specific settings:
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Enable Connection Pooling
+DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+DATABASES['default']['NAME'] = os.path.join(BASE_DIR, 'db.sqlite3')
+
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
